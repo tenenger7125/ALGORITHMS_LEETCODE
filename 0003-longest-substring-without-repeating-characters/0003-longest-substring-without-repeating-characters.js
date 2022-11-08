@@ -3,30 +3,21 @@
  * @return {number}
  */
 
-function isDuplicate(s) {
-    const originCount = s.length;
-    const checkCount = [...new Set(s.split(''))].length;
-    
-    return originCount !== checkCount;
-}
-
 var lengthOfLongestSubstring = function(s) {
-    const sLength = s.length;
+    const set = new Set();
+    let left = 0;
     let answer = 0;
     
-    for (let i=0; i<sLength; i++) {
-        let checkString = s[i];
-        let temp = s[i]
+    if (s.length <= 1) return s.length;
+    
+    for (let i=0; i<s.length; i++) {
         
-        for (let j=i+1; j<sLength; j++) {
-            const temp = checkString + s[j]; 
-            
-            if (isDuplicate(temp)) break;
-            
-            checkString = temp;
+        while (set.has(s[i])) {
+            set.delete(s[left++]);
         }
         
-        answer = Math.max(answer, checkString.length)
+        set.add(s[i]);
+        answer = Math.max(answer, set.size)
     }
     
     return answer
