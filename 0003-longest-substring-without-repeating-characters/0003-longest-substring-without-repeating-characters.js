@@ -8,7 +8,8 @@ var lengthOfLongestSubstring = function(s) {
     let left = 0;
     let answer = 0;
     
-    if (s.length <= 1) return s.length;
+    if (s.length === 0) return 0;
+    if (s.length === 1) return 1;
     
     for (let i=0; i<s.length; i++) {
         
