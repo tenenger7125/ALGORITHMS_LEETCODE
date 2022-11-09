@@ -4,7 +4,7 @@
  */
 
 function isRemove(singleBracket, stackTop) {
-    console.log(singleBracket, stackTop)
+    
     if (stackTop === null) return false;
     
     if (stackTop === "(" && singleBracket === ")" ||
@@ -23,15 +23,11 @@ var isValid = function(s) {
         
         if (char === "(" || char === "{" || char === "[") {
             stack.push(char);
-            continue;
-        }
-
-        if (!isRemove(char, top)) {
-            stack.push(char)
-            break;
-        }
+        } else if (isRemove(char, top)) {
+            stack.pop();
+        } else return false;
         
-        stack.pop();
+        
     }
     
     return stack.length === 0;
