@@ -4,14 +4,15 @@
  */
 
 var isValid = function(s) {
+    const sLength = s.length
     const stack = [];
     
-    for (const char of s) {
+    for (let i=0; i<sLength; i++) {
         
-        if (char === "(") stack.push(")")
-        else if (char === "{") stack.push("}")
-        else if (char === "[") stack.push("]")
-        else if (char !== stack.pop()) return false;
+        if (s[i] === "(") stack.push(")")
+        else if (s[i] === "{") stack.push("}")
+        else if (s[i] === "[") stack.push("]")
+        else if (s[i] !== stack.pop()) return false;
         
     }
     
