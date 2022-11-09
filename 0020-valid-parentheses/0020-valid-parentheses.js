@@ -4,9 +4,10 @@
  */
 
 var isValid = function(s) {
+    const sLength = s.length;
     const stack = [];
     
-    for (let i=0; i<s.length; i++) {
+    for (let i=0; i<sLength; i++) {
         
         if (s[i] === "(") stack.push(")")
         else if (s[i] === "{") stack.push("}")
