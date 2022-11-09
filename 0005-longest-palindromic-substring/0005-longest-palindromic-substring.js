@@ -3,8 +3,6 @@
  * @return {string}
  */
 
-// 가운데 문자가 1개인 경우(홀수)
-// 가운데 문자가 2개인 경우(짝수)
 function makePalindrome(s, i, j) {
     while (0 <= i && j <= s.length) {
         if (s[i] !== s[j]) break;
