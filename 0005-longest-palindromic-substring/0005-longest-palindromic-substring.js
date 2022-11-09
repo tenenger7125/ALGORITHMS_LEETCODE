@@ -13,7 +13,7 @@ function makePalindrome(s, i, j) {
     
     return s.slice(i+1, j);
 }
-// 뒤에서 부터 접근하면 더 빠를듯?
+
 var longestPalindrome = function(s) {
     let answer = '';
     
