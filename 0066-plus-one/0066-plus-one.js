@@ -2,9 +2,7 @@
  * @param {number[]} digits
  * @return {number[]}
  */
-var plusOne = function(digits) {
-    if (digits.length === 0) return 0;
-    
+var plusOne = function(digits) {  
     let num = digits.pop() + 1;
     let result = `${num % 10}`;
     
