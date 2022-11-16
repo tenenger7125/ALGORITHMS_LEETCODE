@@ -3,11 +3,7 @@
  * @return {number}
  */
 var mySqrt = function(x) {
-    let result = 1;
-    
-    while (x / result >= result) {
-        result++;
+    for (let i=0; ;i++) {
+        if (x / i < i) return i - 1;
     }
-    
-    return result - 1;
 };
