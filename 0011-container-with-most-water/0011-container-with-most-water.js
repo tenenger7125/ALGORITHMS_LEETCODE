@@ -2,9 +2,6 @@
  * @param {number[]} height
  * @return {number}
  */
-
-// solution keyword : two pointer;
-
 var maxArea = function(height) {
     let left = 0;
     let right = height.length - 1;
