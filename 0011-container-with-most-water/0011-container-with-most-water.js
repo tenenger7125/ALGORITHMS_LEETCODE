@@ -2,6 +2,7 @@
  * @param {number[]} height
  * @return {number}
  */
+// two pointer로 문제 풀기
 var maxArea = function(height) {
     let left = 0;
     let right = height.length - 1;
