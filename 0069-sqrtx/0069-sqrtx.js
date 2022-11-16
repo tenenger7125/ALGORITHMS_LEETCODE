@@ -3,5 +3,11 @@
  * @return {number}
  */
 var mySqrt = function(x) {
-    return parseInt(Math.sqrt(x))
+    let result = 1;
+    
+    while (x / (result * result) >= 1) {
+        result++;
+    }
+    
+    return result - 1;
 };
