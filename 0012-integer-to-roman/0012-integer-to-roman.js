@@ -18,17 +18,14 @@ var intToRoman = function(num) {
         900:'CM',
         1000:'M'
     }
-    const symbolObjEntries = Object.entries(symbolObj);
-    const symbolObjLength = symbolObjEntries.length;
+    const symbolObjKeys = Object.keys(symbolObj);
+    const symbolObjLength = symbolObjKeys.length;
     let answer = '';
     
     for (let i=symbolObjLength-1; i>=0; i--) {
-        const [value, symbol] = symbolObjEntries[i];
-        const count = num / value;
-        if (count > 0) {
-            answer += symbol.repeat(count);
-            num %= value;
-        }
+        let count = num / symbolObjKeys[i];
+        num %= symbolObjKeys[i];
+        answer += symbolObj[symbolObjKeys[i]].repeat(count);
     }
     
     return answer;
