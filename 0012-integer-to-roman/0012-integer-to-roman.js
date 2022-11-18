@@ -18,16 +18,13 @@ var intToRoman = function(num) {
         900:'CM',
         1000:'M'
     }
-    let answer = '';
     const symbolObjKeys = Object.keys(symbolObj).sort((a,b)=>b-a);
+    let answer = '';
     
     for (const key of symbolObjKeys) {
         let count = num / key;
-        
-        if (count >= 1) {
-            num %= key;
-            answer += symbolObj[key].repeat(count);
-        }
+        num %= key;
+        answer += symbolObj[key].repeat(count);
     }
     
     return answer;
