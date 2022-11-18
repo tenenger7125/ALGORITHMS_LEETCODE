@@ -19,10 +19,9 @@ var intToRoman = function(num) {
         1000:'M'
     }
     const symbolObjKeys = Object.keys(symbolObj);
-    const symbolObjLength = symbolObjKeys.length;
     let answer = '';
     
-    for (let i=symbolObjLength-1; i>=0; i--) {
+    for (let i=symbolObjKeys.length-1; i>=0; i--) {
         let count = num / symbolObjKeys[i];
         num %= symbolObjKeys[i];
         answer += symbolObj[symbolObjKeys[i]].repeat(count);
