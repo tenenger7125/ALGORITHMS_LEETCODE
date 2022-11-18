@@ -23,8 +23,11 @@ var intToRoman = function(num) {
     let answer = '';
     
     for (let i=symbolObjLength-1; i>=0; i--) {
-        answer += symbolObj[symbolObjKeys[i]].repeat(num / symbolObjKeys[i]);
-        num %= symbolObjKeys[i];
+        const count = num / symbolObjKeys[i];
+        if (count > 0) {
+            answer += symbolObj[symbolObjKeys[i]].repeat(count);
+            num %= symbolObjKeys[i];
+        }
     }
     
     return answer;
