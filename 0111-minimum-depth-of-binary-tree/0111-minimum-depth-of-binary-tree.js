@@ -15,16 +15,10 @@ var minDepth = function(root) {
     const traverse = (node) => {
         if (!node) return 0;
         
-        let left, right;
+        if (!node.left) return 1 + traverse(node.right);
+        if (!node.right) return 1 + traverse(node.left);
         
-        if (!node.left) left = right = traverse(node.right);
-        else if (!node.right) left = right = traverse(node.left);
-        else {
-            left = traverse(node.left);
-            right = traverse(node.right);
-        }
-        
-        return 1 + Math.min(left, right)
+        return 1 + Math.min(traverse(node.left), traverse(node.right))
     }
     return traverse(root)
 };
