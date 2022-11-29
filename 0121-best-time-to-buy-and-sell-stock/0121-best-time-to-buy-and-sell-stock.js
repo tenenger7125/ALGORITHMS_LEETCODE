@@ -3,21 +3,21 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let minPrice = Infinity;
-    let answer = 0;
+    let buyIdx = 0;
+    let sellIdx = 1;
+    let maxProfit = 0;
     
-    for (let i=0; i<prices.length; i++) {
-        if (minPrice > prices[i]) {
-            minPrice = prices[i]
-            let j = i;
+    while (sellIdx < prices.length) {
+        if (prices[buyIdx] < prices[sellIdx]) {
+            const profit = prices[sellIdx] - prices[buyIdx];
             
-            while (++j < prices.length) {
-                if (minPrice > prices[j]) continue;
-                
-                answer = Math.max(prices[j] - minPrice, answer)
-            }
-        };
+            maxProfit = Math.max(maxProfit, profit);
+        } else {
+            buyIdx = sellIdx;
+        }
+        
+        sellIdx++;
     }
     
-    return answer
+    return maxProfit
 };
