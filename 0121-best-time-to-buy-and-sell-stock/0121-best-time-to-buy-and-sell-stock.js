@@ -9,13 +9,8 @@ var maxProfit = function(prices) {
     let maxProfit = 0;
     
     while (sellIdx < length) {
-        if (prices[buyIdx] < prices[sellIdx]) {
-            const profit = prices[sellIdx] - prices[buyIdx];
-            
-            maxProfit = Math.max(maxProfit, profit);
-        } else {
-            buyIdx = sellIdx;
-        }
+        if (prices[buyIdx] < prices[sellIdx]) maxProfit = Math.max(maxProfit, prices[sellIdx] - prices[buyIdx]);
+        else buyIdx = sellIdx;
         
         sellIdx++;
     }
