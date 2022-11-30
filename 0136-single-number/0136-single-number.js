@@ -3,12 +3,12 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-    const numObj = nums.reduce((acc, cur) => {
-        if (acc[cur] === undefined) acc[cur] = 1;
-        else acc[cur]++;
-        
-        return acc;
-    }, {})
-
-    return Object.entries(numObj).sort((a,b)=> a[1]-b[1])[0][0]
+    const set = new Set();
+    
+    nums.forEach(num => {
+        if (!set.has(num)) set.add(num);
+        else set.delete(num)
+    })
+    
+    return [...set][0]
 };
