@@ -10,14 +10,16 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+// 토끼와 거북이 알고리즘
 var hasCycle = function(head) {
-    const visit = [];
-    let currentNode = head;
+    let rabbit = turtle = head;
     
-    while (!visit.includes(currentNode) && currentNode !== null) {
-        visit.push(currentNode)
-        currentNode = currentNode.next;
+    while (rabbit && rabbit.next) {
+        rabbit = rabbit.next.next;
+        turtle = turtle.next;
+        
+        if (rabbit === turtle) return true
     }
     
-    return currentNode !== null
+    return false
 };
