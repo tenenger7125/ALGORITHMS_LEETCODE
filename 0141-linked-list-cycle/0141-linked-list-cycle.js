@@ -18,6 +18,6 @@ var hasCycle = function(head) {
         visit.push(currentNode)
         currentNode = currentNode.next;
     }
-    console.log(currentNode)
+    
     return currentNode !== null
 };
