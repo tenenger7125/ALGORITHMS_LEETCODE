@@ -11,7 +11,6 @@ var titleToNumber = function(columnTitle) {
         const columnNumber = columnTitle.charCodeAt(i) - 64;
         multiple = (i === length - 1) ? 1 : multiple * 26;
         answer += columnNumber * multiple
-        console.log(answer, columnNumber, multiple)
     }
     
     return answer
