@@ -16,8 +16,6 @@ var invertTree = function(root) {
         if (!node) return node;
         const left = node.left;
         const right = node.right;
-        
-        console.log(left, right)
 
         node.left = right;
         node.right = left;
