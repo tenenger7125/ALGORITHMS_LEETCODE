@@ -10,24 +10,18 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    const arr = [];
     let currentNode = head;
-    let idx = 0;
     
-    while(currentNode) {
-        arr.push(currentNode.val);
-        currentNode = currentNode.next;
-    }
-    
-    currentNode = head;
-    arr.reverse();
-    console.log(arr, currentNode)
-    while(currentNode) {
-        if (arr[idx] !== currentNode.val) return false;
+    function traverse(node) {
+        if (!node) return true;
         
-        idx++;
+        const prevIsSame = traverse(node.next);
+        const currentIsSame = currentNode.val === node.val;
+        
         currentNode = currentNode.next;
+        
+        return prevIsSame && currentIsSame
     }
     
-    return true
+    return traverse(currentNode);
 };
